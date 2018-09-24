@@ -1,18 +1,33 @@
 import React, { Component } from 'react'
 import 'bulma/css/bulma.css'
 import './App.css'
-import Display from "./Display"
+import { Display } from "./Display"
+import { Currency } from "./Currency"
 
-class App extends Component {
+export class App extends Component {
+	constructor(props) {
+	super(props);
+
+	this.state = {
+		currencies:
+	    [
+	      {
+	  			currencyName: "BTC",
+	  			usdValue: "$100.01"
+	  		},
+	  		{
+	  			currencyName: "ETH",
+	  			usdValue: "$100.01"
+	  		}
+	    ]
+	}
+}
+
 	render() {
 		return (
 			<div>
-				<table className="currencyTable">
-					<Display/>
-				</table>
+				<Display currencies={this.state.currencies}/>
 			</div>
 		)
 	}
 }
-
-export default App;
